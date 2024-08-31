@@ -12,6 +12,6 @@ export const newcoupon = async function (req, res, next) {
       data: newcoupon,
     });
   } catch (error) {
-    next(new AppError(error.message, 400, error));
+    next(new AppError(error.message||"error happened", 400, error));
   }
 };

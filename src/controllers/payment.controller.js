@@ -1,4 +1,5 @@
 import { Coupon } from "../models/coupon.model.js";
+import AppError from "../utils/Error.js";
 
 export const newcoupon = async function (req, res, next) {
   try {

@@ -9,18 +9,18 @@ export const errorcontroller = (err, req, res, next) => {
         message: `Invalid ID ${err.error.path}->${err.error.value}`,
       });
     }
-    if (err.error.code == 11000) {
+    if (err.error?.code == 11000) {
       return res.status(400).json({
         status: "failed",
         message: "Duplicate entry",
       });
     }
   }
-  if (err.error && err.error.name === "JsonWebTokenError") {
+  if (err.error && err.error?.name === "JsonWebTokenError") {
     err.message = err.error.message;
-    err.error = err.error.name;
+    err.error = err.error?.name;
   }
-  if (err.error && err.error.name === "TokenExpiredError") {
+  if (err.error && err.error?.name === "TokenExpiredError") {
     err.message = "Your Token has been expired. Renew the token and then try";
   }
   err.statusCode = err.statusCode || 500;

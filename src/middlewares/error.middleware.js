@@ -3,7 +3,7 @@ import { configDotenv } from "dotenv";
 configDotenv();
 export const errorcontroller = (err, req, res, next) => {
   if (process.env.NODE_ENV === "production") {
-    if (err.error.name == "CastError") {
+    if (err.error?.name == "CastError") {
       return res.status(400).json({
         status: "failed",
         message: `Invalid ID ${err.error.path}->${err.error.value}`,

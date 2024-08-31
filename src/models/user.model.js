@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 import validator from "validator";
 configDotenv();
 
-const userdbconnection = mongoose.createConnection(process.env.MONGO_URL, {
+export const userdbconnection = mongoose.createConnection(process.env.MONGO_URL, {
   dbName: "userDB",
 });
 
-const userSchema = new mongoose.Schema(
+export const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,

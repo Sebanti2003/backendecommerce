@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
-import User from "./user.model.js";
+import User, { userdbconnection, userSchema } from "./user.model.js";
 import { configDotenv } from "dotenv";
 configDotenv();
 const orderdbconnection = mongoose.createConnection(process.env.MONGO_URL, {
   dbName: "orderDB",
 });
+orderdbconnection.model("User",userSchema);
 const orderSchema = new mongoose.Schema(
   {
     shippingInfo: {

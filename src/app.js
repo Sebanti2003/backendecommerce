@@ -9,10 +9,12 @@ import { errorcontroller } from "./middlewares/error.middleware.js";
 import AppError from "./utils/Error.js";
 import NodeCache from "node-cache";
 import morgan from "morgan";
+import Stripe from "stripe";
 const app = express();
 export const myCache = new NodeCache({
   stdTTL: 600,
 });
+export const stripe=new Stripe(process.env.STRIPE_SECRET_KEY);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

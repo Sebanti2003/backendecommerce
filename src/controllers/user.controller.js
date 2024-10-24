@@ -21,8 +21,6 @@ export const createuser = async (req, res, next) => {
       $or: [{ email: userdata.email }, { name: userdata.name }],
     });
     if (user) {
-      console.log("hey");
-
       return res.json({
         status: true,
         message: "User already exists",

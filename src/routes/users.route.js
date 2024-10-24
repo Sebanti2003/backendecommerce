@@ -18,3 +18,4 @@ router
 router.route("/:id").get(getuser).delete(adminOnly, deleteuser);
 
 export default router;
+  
